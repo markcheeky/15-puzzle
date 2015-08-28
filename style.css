@@ -162,10 +162,10 @@
 			width: 32vw;
 		}
 
-		.column:first-child {
+		.column:nth-child(2) {
 			float: left;
 		}
-		.column:nth-child(2) {
+		.column:nth-child(3) {
 			float: right;
 		}
 
