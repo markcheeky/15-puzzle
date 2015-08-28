@@ -1,0 +1,191 @@
+/* defaults values */
+
+	body {
+		padding: 3em 0;
+		font-family: 'Open Sans', sans-serif;
+		color: #616161;
+	}
+
+	html, body {
+		margin: 0;
+		border: none;
+		width: 100%;
+		min-height: 100%;
+		font-size: 16pt;
+	}
+
+	#main-content {
+		margin: 0 auto;
+		overflow: auto;
+	}
+
+	p {
+		text-align: justify;
+		margin: 0;
+	}
+/* end of defaults values */
+
+/* layout - mobile first */
+	#main-content {
+		width: 80vw;
+	}
+
+	.column {
+		width: 80vw;
+		max-width: 500px;
+	}
+
+	#game-field {
+		height: 80vw;
+		max-height: 500px;
+	}
+/* end of layout - mobile first*/
+
+/* buttons */
+	button, .button-like {
+ 		border: none;
+ 		height: 3em;
+ 		line-height: 3em;
+ 		margin-bottom: 4%;
+ 		width: 100%;
+ 		font-size: inherit;
+ 		color: inherit;
+ 		outline: none;
+	}
+
+	.button-like {
+		width: 44%;
+		padding: 0 0 0 3%;
+	}
+
+	.button-like:nth-child(2) {
+		float: right;
+	}
+/* end of buttons */
+
+/* links */
+	a {
+		color: #009688;
+		font-weight: bold;
+	}
+
+	a:hover {
+		color: #4DB6AC;
+	}
+/* end of links */
+
+/* game-field */
+	#game-field {
+		margin-bottom: 4%;
+		position: relative;
+	}
+
+	.grid-box {
+		background-color: #009688 !important;
+		font-size: 1.4em;
+		color: white;
+		width: 20%;
+		height: 20%;
+		position: absolute;
+		display: table;
+		color: white !important;
+	}
+
+	.inner-box-content {
+		margin: 0 auto;
+		text-align: center;
+		height: 100%;
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.box {
+		background-color: #80CBC4;
+		border-radius: 0.2em;
+		overflow: hidden;
+		font-weight: bold;
+		-webkit-transition: 2000ms ease-in-out; /* Safari */
+		transition: 2000ms ease-in-out;
+	}
+
+	.column-0 {
+		left: 4%;
+	}
+
+	.column-1 {
+		left: 28%;
+	}
+
+	.column-2 {
+		left: 52%;
+	}
+
+	.column-3 {
+		left: 76%;
+	}
+
+	.row-0 {
+		top: 4%;
+	}
+
+	.row-1 {
+		top: 28%;
+	}
+
+	.row-2 {
+		top: 52%;
+	}
+
+	.row-3 {
+		top: 76%;
+	}
+/* end of game-field */
+
+/* responsive */
+
+	@media only screen and (orientation: landscape)  {
+		
+		html {
+			display: table;
+		}
+
+		body {
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		#main-content {
+			width: 70vw;
+		}
+
+		.column {
+			width: 32vw;
+		}
+
+		.column:first-child {
+			float: left;
+		}
+		.column:nth-child(2) {
+			float: right;
+		}
+
+		#game-field {
+			height: 32vw;
+		}
+	}
+
+	@media only screen and (orientation: landscape) and (max-width: 800px)  {
+
+		#main-content {
+			width: 86vw;
+		}
+
+		.column {
+			width: 40vw;
+		}
+
+		#game-field {
+			height: 40vw;
+		}
+	}
+/* end of responsive 
