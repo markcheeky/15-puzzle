@@ -1,27 +1,27 @@
 function moveEvent(e) {
 	//alert(e.which); //for testing purposes only
 	/ directions: left = 37, up = 38, right = 39, down = 40 /
-    switch(e.which) {
-        case 37:
-            move("left", true);
+	switch(e.which) {
+		case 37:
+			move("left", true);
 			e.preventDefault();
-            break;
-            
-        case 38:
-            move("up", true);
+			break;
+			
+		case 38:
+			move("up", true);
 			e.preventDefault();
-            break;
-            
-        case 39:
-            move("right", true);
+			break;
+			
+		case 39:
+			move("right", true);
 			e.preventDefault();
-            break;
-            
-        case 40:
-            move("down", true);
+			break;
+			
+		case 40:
+			move("down", true);
 			e.preventDefault();
-            break;
-    }
+			break;
+	}
 }
 
 $(function(){
@@ -39,19 +39,19 @@ $(function hammerListener() {
 	mc.get('swipe').set({ direction: Hammer.DIRECTION_ALL});
 
 	mc.on("swipeleft", function(ev) {
-		alert("left swipe detected");
+		move("left", true);
 	});
 
 	mc.on("swiperight", function(ev) {
-		alert("right swipe detected");
+		move("right", true);
 	});	
 
 	mc.on("swipeup", function(ev) {
-		alert("up swipe detected");
+		move("up", true);
 	});	
 
 	mc.on("swipedown", function(ev) {
-		alert("down swipe detected");
+		move("down", true);
 	});	
 
 });
