@@ -28,9 +28,6 @@ $(function(){
 });
 
 
-
-for graphical version only
-
 $(function hammerListener() {
 	var options = {
 		touchAction: "pan-x"
