@@ -3,7 +3,7 @@
 	body {
 		padding: 3em 0;
 		font-family: 'Open Sans', sans-serif;
-		color: #616161;
+		color: white;
 	}
 
 	html, body {
@@ -17,31 +17,37 @@
 	#main-content {
 		margin: 0 auto;
 		overflow: auto;
+		display: none;
 	}
 
 	p {
 		text-align: justify;
 		margin: 0;
+		color: #616161;
 	}
 /* end of defaults values */
 
 /* layout - mobile first */
 	#main-content {
-		width: 80vw;
+		width: 90vw;
 	}
 
 	.column {
-		width: 80vw;
+		width: 90vw;
 		max-width: 500px;
 	}
 
 	#game-field {
-		height: 80vw;
+		height: 90vw;
 		max-height: 500px;
 	}
 /* end of layout - mobile first*/
 
 /* buttons */
+	button {
+		cursor: pointer;
+	}
+
 	button, .button-like {
  		border: none;
  		height: 3em;
@@ -80,16 +86,6 @@
 		position: relative;
 	}
 
-	.grid-box {
-		background-color: #009688 !important;
-		font-size: 1.4em;
-		color: white;
-		width: 20%;
-		height: 20%;
-		position: absolute;
-		display: table;
-		color: white !important;
-	}
 
 	.inner-box-content {
 		margin: 0 auto;
@@ -106,6 +102,16 @@
 		font-weight: bold;
 		-webkit-transition: 2000ms ease-in-out; /* Safari */
 		transition: 2000ms ease-in-out;
+	}
+
+	.grid-box {
+		background-color: #009688;
+		font-size: 1.4em;
+		color: white;
+		width: 20%;
+		height: 20%;
+		position: absolute;
+		display: table;
 	}
 
 	.column-0 {

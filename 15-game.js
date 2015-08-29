@@ -63,11 +63,12 @@ function shuffle(amount) {
 };
 
 function newGame() {
-	$('.box').css({"-webkit-transition": "1000ms ease-in-out;", "transition": "1000ms ease-in-out"});
+	$('.box').css({"-webkit-transition": "1500ms ease-in-out;", "transition": "1500ms ease-in-out"});
 	shuffle(500);
 	setTimeout( function() {
 		$('.box').css({"-webkit-transition": "80ms ease-in-out;", "transition": "80ms ease-in-out"});
 	}, 1000);
 }
 
+$('#main-content').fadeIn(1200);
 newGame();
