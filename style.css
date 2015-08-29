@@ -1,7 +1,6 @@
 /* defaults values */
 
 	body {
-		padding: 3em 0;
 		font-family: 'Open Sans', sans-serif;
 		color: white;
 	}
@@ -15,18 +14,14 @@
 	}
 
 	#main-content {
-		margin: 0 auto;
+		margin: 0.5em auto;
 		overflow: auto;
 		display: none;
 	}
 
-	p {
-		text-align: justify;
-		margin: 0;
-	}
-
 	h1, p {
 		color: #616161;
+		margin: 0 0 0.5em 0;
 	}
 /* end of defaults values */
 
@@ -53,8 +48,8 @@
 
 	button, .button-like {
  		border: none;
- 		height: 3em;
- 		line-height: 3em;
+ 		height: 2.5em;
+ 		line-height: 2.5em;
  		margin-bottom: 4%;
  		width: 100%;
  		font-size: inherit;
