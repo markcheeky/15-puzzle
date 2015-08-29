@@ -23,6 +23,9 @@
 	p {
 		text-align: justify;
 		margin: 0;
+	}
+
+	h1, p {
 		color: #616161;
 	}
 /* end of defaults values */
