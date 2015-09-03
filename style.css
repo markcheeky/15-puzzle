@@ -18,12 +18,21 @@
 		overflow: auto;
 		display: none;
 	}
+/* end of defaults values */
 
-	h1, p {
+/* texts */
+
+	h1, h2, p {
 		color: #616161;
 		margin: 0 0 0.5em 0;
 	}
-/* end of defaults values */
+
+	h2, a {
+		font-size: 16pt;
+		text-transform: uppercase;
+		margin: 0;
+	}
+/*end of texts*/
 
 /* layout - mobile first */
 	#main-content {
