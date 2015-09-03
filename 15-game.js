@@ -7,7 +7,7 @@ var gameField =   [ [ 1,   2,   3,   4 ],
 					[ 9,  10,  11,  12 ],
 					[ 13, 14,  15,   0 ] ];
 
-var score = 0;
+var score = 100;
 var directionNames = ["up", "down", "left", "right"];
 
 function showMove(moved, positionFrom, positionTo) {
@@ -63,11 +63,13 @@ function shuffle(amount) {
 };
 
 function newGame() {
-	$('.grid-box').css({"-webkit-transition": "1500ms ease-in-out;", "transition": "1500ms ease-in-out"});
+	$('.grid-box').css({"-webkit-transition": "1500ms ease-in-out", "transition": "1500ms ease-in-out"});
 	shuffle(500);
+	$('#inner-timer').width("0");
 	setTimeout( function() {
-		$('.grid-box').css({"-webkit-transition": "80ms ease-in-out;", "transition": "80ms ease-in-out"});
+		$('.grid-box').css({"-webkit-transition": "80ms ease-in-out", "transition": "80ms ease-in-out"});
 	}, 1000);
+
 }
 
 $('#main-content').fadeIn(1200);

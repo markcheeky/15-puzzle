@@ -157,7 +157,7 @@
 /* timer */
 	#timer {
 		width: 100%;
-		height: 2emem;
+		height: 2em;
 		padding: 0;
 	}
 
@@ -165,8 +165,8 @@
 		width: 100%;
 		height: 100%;
 		background-color: #009688;
-		-webkit-transition: 20ms ease-in-out; /* Safari */
-		transition: 20ms ease-in-out;
+		-webkit-transition: all 100s linear; /* Safari */
+		transition: all 100s linear;
 	}
 /* end of timer*/
 
