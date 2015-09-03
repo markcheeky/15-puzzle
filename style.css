@@ -98,8 +98,6 @@
 		border-radius: 0.2em;
 		overflow: hidden;
 		font-weight: bold;
-		-webkit-transition: 2000ms ease-in-out; /* Safari */
-		transition: 2000ms ease-in-out;
 	}
 
 	.grid-box {
@@ -110,6 +108,8 @@
 		height: 20%;
 		position: absolute;
 		display: table;
+		-webkit-transition: 2000ms ease-in-out; /* Safari */
+		transition: 2000ms ease-in-out;
 	}
 
 	.column-0 {
@@ -144,6 +144,10 @@
 		top: 76%;
 	}
 /* end of game-field */
+
+/* timer */
+
+/* end of timer*/
 
 /* responsive */
 
