@@ -62,7 +62,7 @@
 		padding: 0 0 0 3%;
 	}
 
-	.button-like:nth-child(2) {
+	.button-like:nth-child(3) {
 		float: right;
 	}
 /* end of buttons */
@@ -146,7 +146,19 @@
 /* end of game-field */
 
 /* timer */
+	#timer {
+		width: 100%;
+		height: 2emem;
+		padding: 0;
+	}
 
+	#inner-timer {
+		width: 100%;
+		height: 100%;
+		background-color: #009688;
+		-webkit-transition: 20ms ease-in-out; /* Safari */
+		transition: 20ms ease-in-out;
+	}
 /* end of timer*/
 
 /* responsive */
