@@ -7,7 +7,7 @@ var gameField =   [ [ 1,   2,   3,   4 ],
 					[ 9,  10,  11,  12 ],
 					[ 13, 14,  15,   0 ] ];
 
-var score = 100;
+var score = 0;
 var directionNames = ["up", "down", "left", "right"];
 
 function showMove(moved, positionFrom, positionTo) {

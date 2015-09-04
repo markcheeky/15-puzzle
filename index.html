@@ -10,7 +10,7 @@
 		<link rel='stylesheet' type='text/css' href='./style.css'>
 		<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
-		<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+		<script src='./jquery.min.js'></script>
 		<script type='text/javascript' src='./hammer.js'></script>
 		<script type='text/javascript' src='./interaction.js'></script>
 
@@ -41,10 +41,10 @@
 		
 			</div>
 			<div class='column'>
-				<div id='timer' class='box button-like'>
+				<button id='new-game-button' class='box' onclick='newGame()'>
 					<div id='inner-timer'></div>
-				</div>
-				<button id='new-game-button' class='box' onclick='newGame()'>New Game</button>
+					<div id='new-game-text'>New Game<div>
+				</button>
 				<div id='score' class='button-like box'>score<div id='score-inner-value'></div></div>
 				<div id='best' class='button-like box'>best<div  id='best-inner-value'></div></div>
 				<h2>how to play: </h2>
