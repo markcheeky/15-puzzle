@@ -26,7 +26,7 @@ function checkWin() {
 			}
 		};
 	};
-	alert("win");
+	alert("You won!");
 	newGame();
 };
 
@@ -68,7 +68,10 @@ function newGame() {
 	setTimeout( function() {
 		$('.grid-box').css({"-webkit-transition": "80ms ease-in-out", "transition": "80ms ease-in-out"});
 	}, 1000);
-
+	$('#inner-timer').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
+    function(e) {
+    	alert("You lost!");
+    });
 }
 
 $('#main-content').fadeIn(1200);

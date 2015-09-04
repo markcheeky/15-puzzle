@@ -174,14 +174,13 @@
 		position: absolute;
 		z-index: 1;
 		background-color: #009688;
-		animation: 100s linear animate-timer;
+		animation: 10s linear animate-timer forwards;
 	}
 
 	@keyframes animate-timer {
 		from {width: 100%;}
 		to {width: 0;}
 	}
-
 /* end of timer*/
 
 /* responsive */
