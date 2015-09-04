@@ -64,8 +64,7 @@ function shuffle(amount) {
 
 function newGame() {
 	$('.grid-box').css({"-webkit-transition": "1500ms ease-in-out", "transition": "1500ms ease-in-out"});
-	shuffle(500);
-	$('#inner-timer').width("0");
+	shuffle(1000);
 	setTimeout( function() {
 		$('.grid-box').css({"-webkit-transition": "80ms ease-in-out", "transition": "80ms ease-in-out"});
 	}, 1000);

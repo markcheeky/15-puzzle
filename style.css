@@ -174,9 +174,14 @@
 		position: absolute;
 		z-index: 1;
 		background-color: #009688;
-		-webkit-transition: all 100s linear; /* Safari */
-		transition: all 100s linear;
+		animation: 100s linear animate-timer;
 	}
+
+	@keyframes animate-timer {
+		from {width: 100%;}
+		to {width: 0;}
+	}
+
 /* end of timer*/
 
 /* responsive */
