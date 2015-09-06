@@ -178,7 +178,7 @@
 		position: absolute;
 		z-index: 1;
 		background-color: #009688;
-		animation: 10s linear animate-timer forwards;
+		animation: 100s linear animate-timer forwards;
 	}
 
 	.paused {
@@ -190,6 +190,12 @@
 		from {width: 100%;}
 		to {width: 0;}
 	}
+
+	@keyframes animate-reverse-timer {
+		from {width: 0;}
+		to {width: 100%;}
+	}
+
 /* end of timer*/
 
 /* responsive */

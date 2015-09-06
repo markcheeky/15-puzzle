@@ -30,14 +30,18 @@ function end() {
 
 // called when user won
 function win() {
-	end();
-	alert('win - score: ' + Math.ceil(score));
+	if (! gameEnd) {
+		end();
+		alert('win - score: ' + Math.ceil(score));
+	}
 }
 
 // called when user lost
 function gameOver() {
-	end();
-	alert('game over');
+	if (! gameEnd) {
+		end();
+		alert('game over');
+	}
 }
 
 // display a tile movement
@@ -96,22 +100,37 @@ function shuffle(amount) {
 	};
 };
 
+function newGameDesign() {
+	$('.grid-box').css({"-webkit-transition": "1500ms ease-in-out", "transition": "1500ms ease-in-out"});
+	ChangeBoxAnimationTimeout = setTimeout( function() {
+		$('.grid-box').css({"-webkit-transition": "80ms ease-in-out", "transition": "80ms ease-in-out"});
+	}, 1000);
+	$('#inner-timer').css({"animation": "none", "animation-play-state": "initial"});
+	$('#inner-timer').width("100%");
+	$('#inner-timer').css("animation", "100s linear animate-timer forwards");
+}
+
+function changeScore() {
+	clearInterval(changeContentOfScoreInterval);
+	changeContentOfScoreInterval = setInterval( function() {
+		score -= 0.2;
+		scoreLabel.innerHTML = Math.ceil(score);
+		if (score <= 0) {
+			gameOver();
+		}
+	}, 200);
+}
+
 // runs a new game
 function newGame() {
 	gameEnd = false;
 	score = 100;
-	$('.grid-box').css({"-webkit-transition": "1500ms ease-in-out", "transition": "1500ms ease-in-out"});
-	shuffle(10);
-	ChangeBoxAnimationTimeout = setTimeout( function() {
-		$('.grid-box').css({"-webkit-transition": "80ms ease-in-out", "transition": "80ms ease-in-out"});
-	}, 1000);
-	$('#inner-timer').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
-		gameOver();
-	});
-	changeContentOfScoreInterval = setInterval( function() {
-		score -= 0.1;
-		scoreLabel.innerHTML = Math.ceil(score);
-	}, 100);
+	gameEnd = false;
+
+	newGameDesign();
+	shuffle(1000);
+
+	changeScore();
 }
 
 $('#main-content').fadeIn(1200); // show fade effect on page load
