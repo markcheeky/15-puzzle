@@ -75,6 +75,10 @@
 	.button-like:nth-child(2) {
 		float: right;
 	}
+
+	.inner-value {
+		display: inline;
+	}
 /* end of buttons */
 
 /* links */
@@ -174,12 +178,12 @@
 		position: absolute;
 		z-index: 1;
 		background-color: #009688;
-		animation: 100s linear animate-timer forwards;
+		animation: 10s linear animate-timer forwards;
 	}
 
 	.paused {
 		-webkit-animation-play-state: paused !important; /* Chrome, Safari, Opera */
-    	animation-play-state: paused  !important;
+		animation-play-state: paused  !important;
 	}
 
 	@keyframes animate-timer {

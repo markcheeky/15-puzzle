@@ -10,17 +10,33 @@ var gameField =   [ [ 1,   2,   3,   4 ],
 					[ 9,  10,  11,  12 ],
 					[ 13, 14,  15,   0 ] ];
 
-var initialTime = (new Date()).getTime();
+var initialTime;
 var directionNames = ["up", "down", "left", "right"];
+
+var scoreLabel = document.getElementById("score-inner-value");
+
+var score = 100;
+
+var ChangeBoxAnimationTimeout;
+var changeContentOfScoreInterval;
+
+var gameEnd;
+
+function end() {
+	gameEnd = true;
+	clearInterval(changeContentOfScoreInterval);
+    $('#inner-timer').addClass('paused');
+}
 
 // called when user won
 function win() {
-	var score = 100 - Math.ceil(((new Date()).getTime() - initialTime) / 1000);
-	alert('win - score: ' + score);
+	end();
+	alert('win - score: ' + Math.ceil(score));
 }
 
 // called when user lost
 function gameOver() {
+	end();
 	alert('game over');
 }
 
@@ -82,25 +98,21 @@ function shuffle(amount) {
 
 // runs a new game
 function newGame() {
+	gameEnd = false;
+	score = 100;
 	$('.grid-box').css({"-webkit-transition": "1500ms ease-in-out", "transition": "1500ms ease-in-out"});
 	shuffle(10);
-	setTimeout( function() {
+	ChangeBoxAnimationTimeout = setTimeout( function() {
 		$('.grid-box').css({"-webkit-transition": "80ms ease-in-out", "transition": "80ms ease-in-out"});
 	}, 1000);
 	$('#inner-timer').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
 		gameOver();
-    });
+	});
+	changeContentOfScoreInterval = setInterval( function() {
+		score -= 0.1;
+		scoreLabel.innerHTML = Math.ceil(score);
+	}, 100);
 }
 
 $('#main-content').fadeIn(1200); // show fade effect on page load
 newGame(); // start new game on page load
-
-// pauses the timer when the browser tab not active (when the user moves to another tab or a window )
-$(window).blur(function(e) {
-    $('#inner-timer').addClass('paused');
-});
-
-// resumes the timer when the browser tab becomes active
-$(window).focus(function(e) {
-    $('#inner-timer').removeClass('paused');
-});
