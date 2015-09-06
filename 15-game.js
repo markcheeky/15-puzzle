@@ -7,8 +7,17 @@ var gameField =   [ [ 1,   2,   3,   4 ],
 					[ 9,  10,  11,  12 ],
 					[ 13, 14,  15,   0 ] ];
 
-var score = 0;
+var initialTime = (new Date()).getTime();
 var directionNames = ["up", "down", "left", "right"];
+
+function win() {
+	var score = 100 - Math.ceil(((new Date()).getTime() - initialTime) / 1000);
+	alert('win - score: ' + score);
+}
+
+function gameOver() {
+	alert('game over');
+}
 
 function showMove(moved, positionFrom, positionTo) {
 	var box = $('#box-' + moved);
@@ -26,8 +35,7 @@ function checkWin() {
 			}
 		};
 	};
-	alert("You won!");
-	newGame();
+	win();
 };
 
 function findCell(number) {
@@ -64,15 +72,22 @@ function shuffle(amount) {
 
 function newGame() {
 	$('.grid-box').css({"-webkit-transition": "1500ms ease-in-out", "transition": "1500ms ease-in-out"});
-	shuffle(1000);
+	shuffle(10);
 	setTimeout( function() {
 		$('.grid-box').css({"-webkit-transition": "80ms ease-in-out", "transition": "80ms ease-in-out"});
 	}, 1000);
-	$('#inner-timer').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
-    function(e) {
-    	alert("You lost!");
+	$('#inner-timer').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+		gameOver();
     });
 }
 
 $('#main-content').fadeIn(1200);
 newGame();
+
+$(window).blur(function(e) {
+    $('#inner-timer').addClass('paused');
+});
+
+$(window).focus(function(e) {
+    $('#inner-timer').removeClass('paused');
+});
