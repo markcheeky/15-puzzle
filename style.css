@@ -11,6 +11,7 @@
 		width: 100%;
 		min-height: 100%;
 		font-size: 16pt;
+		font-weight: lighter;
 	}
 
 	#main-content {
@@ -42,6 +43,7 @@
 	.column {
 		width: 90vw;
 		max-width: 500px;
+		margin: 0 auto;
 	}
 
 	#game-field {
@@ -111,12 +113,11 @@
 		background-color: #80CBC4;
 		border-radius: 0.2em;
 		overflow: hidden;
-		font-weight: bold;
 	}
 
 	.grid-box {
 		background-color: #009688;
-		font-size: 1.4em;
+		font-size: 1.15em;
 		color: white;
 		width: 20%;
 		height: 20%;
@@ -200,7 +201,7 @@
 
 /* responsive */
 
-	@media only screen and (orientation: landscape)  {
+	@media only screen and (min-width: 900px) and (orientation: landscape)   {
 		
 		html {
 			display: table;
@@ -229,20 +230,11 @@
 		#game-field {
 			height: 32vw;
 		}
-	}
 
-	@media only screen and (orientation: landscape) and (max-width: 800px)  {
-
-		#main-content {
-			width: 86vw;
-		}
-
-		.column {
-			width: 40vw;
-		}
-
-		#game-field {
-			height: 40vw;
+		.grid-box {
+			font-size: 1.3em;
 		}
 	}
+
+
 /* end of responsive 
