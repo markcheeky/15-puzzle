@@ -14,8 +14,10 @@ var initialTime;
 var directionNames = ["up", "down", "left", "right"];
 
 var scoreLabel = document.getElementById("score-inner-value");
+var bestScoreLabel = document.getElementById("best-inner-value");
 
 var score = 100;
+var bestScore = 0;
 
 var ChangeBoxAnimationTimeout;
 var changeContentOfScoreInterval;
@@ -32,7 +34,12 @@ function end() {
 function win() {
 	if (! gameEnd) {
 		end();
-		alert('win - score: ' + Math.ceil(score));
+		score = Math.ceil(score);
+		alert('win - score: ' + score);
+		if (score >= bestScore) {
+			document.cookie = '' + score;
+			bestScoreLabel.innerHTML = score;
+		}
 	}
 }
 
@@ -113,12 +120,12 @@ function newGameDesign() {
 function changeScore() {
 	clearInterval(changeContentOfScoreInterval);
 	changeContentOfScoreInterval = setInterval( function() {
-		score -= 0.2;
+		score -= 1;
 		scoreLabel.innerHTML = Math.ceil(score);
 		if (score <= 0) {
 			gameOver();
 		}
-	}, 200);
+	}, 1000);
 }
 
 // runs a new game
@@ -126,6 +133,8 @@ function newGame() {
 	gameEnd = false;
 	score = 100;
 	gameEnd = false;
+	bestScore = document.cookie || 0;
+	bestScoreLabel.innerHTML = bestScore;
 
 	newGameDesign();
 	shuffle(1000);
