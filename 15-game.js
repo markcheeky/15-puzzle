@@ -115,6 +115,7 @@ function newGameDesign() {
 	$('#inner-timer').css({"animation": "none", "animation-play-state": "initial"});
 	$('#inner-timer').width("100%");
 	$('#inner-timer').css("animation", "100s linear animate-timer forwards");
+    $('#inner-timer').removeClass('paused');
 }
 
 function changeScore() {
@@ -137,7 +138,7 @@ function newGame() {
 	bestScoreLabel.innerHTML = bestScore;
 
 	newGameDesign();
-	shuffle(1000);
+	shuffle(8);
 
 	changeScore();
 }
