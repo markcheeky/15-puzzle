@@ -37,7 +37,7 @@ function win() {
 		score = Math.ceil(score);
 		alert('win - score: ' + score);
 		if (score >= bestScore) {
-			document.cookie = 0 + ';expires = Tue, 19 Jan 2038 03:14:07 GMT';
+			document.cookie = score + ';expires = Tue, 19 Jan 2038 03:14:07 GMT';
 			bestScoreLabel.innerHTML = score;
 		}
 	}
@@ -143,5 +143,6 @@ function newGame() {
 	changeScore();
 }
 
+document.cookie = 0 + ';expires = Tue, 19 Jan 2038 03:14:07 GMT';
 $('#main-content').fadeIn(1200); // show fade effect on page load
 newGame(); // start new game on page load
