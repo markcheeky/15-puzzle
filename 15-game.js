@@ -37,7 +37,7 @@ function win() {
 		score = Math.ceil(score);
 		alert('win - score: ' + score);
 		if (score >= bestScore) {
-			setCookie('' + 0, 2147483647);
+			setCookie('' + score, 2147483647);
 			bestScoreLabel.innerHTML = score;
 		}
 	}
