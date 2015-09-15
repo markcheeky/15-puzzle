@@ -37,7 +37,7 @@ function win() {
 		score = Math.ceil(score);
 		alert('win - score: ' + score);
 		if (score >= bestScore) {
-			setCookie('' + score, 2147483647);
+			document.cookie = score + ';expires = Tue, 19 Jan 2038 03:14:07 GMT';
 			bestScoreLabel.innerHTML = score;
 		}
 	}
