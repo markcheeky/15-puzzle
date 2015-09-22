@@ -158,6 +158,16 @@
 	.row-3 {
 		top: 76%;
 	}
+
+	#GameEndOverlay {
+		width: 100%;
+		height: 100%;
+		line-height: 100%;
+		background-color: white;
+		opacity: 0.8;
+		z-index: 1000;
+		color: black;
+	}
 /* end of game-field */
 
 /* timer */
@@ -196,7 +206,6 @@
 		from {width: 0;}
 		to {width: 100%;}
 	}
-
 /* end of timer*/
 
 /* responsive */
@@ -235,6 +244,4 @@
 			font-size: 1.3em;
 		}
 	}
-
-
 /* end of responsive 
