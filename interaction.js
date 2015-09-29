@@ -1,7 +1,9 @@
 // function that gets a pressed key and move
 function moveEvent(e) {
-	/* directions: left = 37, up = 38, right = 39, down = 40 */
+	/* key presses: left = 37, up = 38, right = 39, down = 40 */
+
 	// e.preventDefaults() causes that page will not scroll when arrows pressed
+
 	switch(e.which) {
 		case 37:
 			move("left", true);
