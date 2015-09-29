@@ -49,6 +49,7 @@ function win() {
 function gameOver() {
 	if (! gameEnd) {
 		end();
+		document.cookie = '';
 		endMessageDiv.innerHTML = "Game over";
 	}
 }
@@ -101,8 +102,7 @@ function move(direction, invokedByUser) {
 		if (invokedByUser) { // check a win if the user invoked a move (not shuffling)
 			checkWin();
 		};
-	}
-	
+	}	
 };
 
 // shuffle a game field
@@ -112,6 +112,7 @@ function shuffle(amount) {
 	};
 };
 
+// reloads initial look of the game
 function newGameDesign() {
 	$('.grid-box').css({"-webkit-transition": "1500ms ease-in-out", "transition": "1500ms ease-in-out"});
 	ChangeBoxAnimationTimeout = setTimeout( function() {
@@ -124,9 +125,9 @@ function newGameDesign() {
     $('#gameEndOverlay').css('opacity', '0');
 
     endMessageDiv.innerHTML = "";
-
 }
 
+// changes score in the label every second
 function changeScore() {
 	clearInterval(changeContentOfScoreInterval);
 	changeContentOfScoreInterval = setInterval( function() {
