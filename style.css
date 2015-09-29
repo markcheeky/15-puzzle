@@ -33,6 +33,10 @@
 		text-transform: uppercase;
 		margin: 0;
 	}
+
+	#gameEnd {
+		font-size: 1.1em;
+	}
 /*end of texts*/
 
 /* layout - mobile first */
@@ -159,14 +163,22 @@
 		top: 76%;
 	}
 
-	#GameEndOverlay {
+	#gameEndOverlay {
 		width: 100%;
 		height: 100%;
-		line-height: 100%;
 		background-color: white;
-		opacity: 0.8;
-		z-index: 1000;
-		color: black;
+		opacity: 0;
+		color: #616161;
+		text-align: center;
+		z-index: 10000;
+		-webkit-transition: 800ms ease-in-out; /* Safari */
+		transition: 800ms ease-in-out;
+	}
+
+	#inner-gameEnd {
+		position: relative;
+		top: 40%;
+		height: 20%;
 	}
 /* end of game-field */
 
@@ -210,7 +222,7 @@
 
 /* responsive */
 
-	@media only screen and (min-width: 900px) and (orientation: landscape)   {
+	@media only screen and (min-width: 990px) and (orientation: landscape) { /* large version */
 		
 		html {
 			display: table;

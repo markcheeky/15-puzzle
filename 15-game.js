@@ -18,6 +18,7 @@ var bestScoreLabel = document.getElementById("best-inner-value");
 
 var score = 100;
 var bestScore = 0;
+var endMessageDiv = document.getElementById("inner-gameEnd");
 
 var ChangeBoxAnimationTimeout;
 var changeContentOfScoreInterval;
@@ -28,6 +29,7 @@ function end() {
 	gameEnd = true;
 	clearInterval(changeContentOfScoreInterval);
     $('#inner-timer').addClass('paused');
+    $('#gameEndOverlay').css('opacity', '0.9');
 }
 
 // called when user won
@@ -35,8 +37,8 @@ function win() {
 	if (! gameEnd) {
 		end();
 		score = Math.ceil(score);
-		alert('win - score: ' + score);
-		if (score >= bestScore) {
+		endMessageDiv.innerHTML = "Congratulations - you won! <br>score: " + score;
+		if (score > bestScore) {
 			document.cookie = score + ';expires = Tue, 19 Jan 2038 03:14:07 GMT';
 			bestScoreLabel.innerHTML = score;
 		}
@@ -47,7 +49,7 @@ function win() {
 function gameOver() {
 	if (! gameEnd) {
 		end();
-		alert('game over');
+		endMessageDiv.innerHTML = "Game over";
 	}
 }
 
@@ -85,19 +87,22 @@ function findCell(number) {
 
 // finds the empty space and moves a tile (corresponding to direction) there
 function move(direction, invokedByUser) {
-	var directions = {"up": [1, 0], "down":[-1, 0], "right":[0, -1], "left":[0, 1]};
-	var direction = directions[direction];
-	var positionEmptyTile = findCell(0);
-	var positionMoved = [ (positionEmptyTile[0] + direction[0]), (positionEmptyTile[1] + direction[1])];
-	if (positionMoved.indexOf(gameField.length) < 0 && positionMoved.indexOf(-1) < 0) {
-		var moved = gameField[ positionMoved[0] ][ positionMoved[1] ];
-		showMove(moved, positionMoved, positionEmptyTile);
-		gameField[positionEmptyTile[0]][positionEmptyTile[1]] = moved;
-		gameField[positionMoved[0]][positionMoved[1]] = 0;
-	};
-	if (invokedByUser) { // check a win if the user invoked a move (not shuffling)
-		checkWin();
-	};
+	if (! gameEnd) {
+		var directions = {"up": [1, 0], "down":[-1, 0], "right":[0, -1], "left":[0, 1]};
+		var direction = directions[direction];
+		var positionEmptyTile = findCell(0);
+		var positionMoved = [ (positionEmptyTile[0] + direction[0]), (positionEmptyTile[1] + direction[1])];
+		if (positionMoved.indexOf(gameField.length) < 0 && positionMoved.indexOf(-1) < 0) {
+			var moved = gameField[ positionMoved[0] ][ positionMoved[1] ];
+			showMove(moved, positionMoved, positionEmptyTile);
+			gameField[positionEmptyTile[0]][positionEmptyTile[1]] = moved;
+			gameField[positionMoved[0]][positionMoved[1]] = 0;
+		};
+		if (invokedByUser) { // check a win if the user invoked a move (not shuffling)
+			checkWin();
+		};
+	}
+	
 };
 
 // shuffle a game field
@@ -116,6 +121,10 @@ function newGameDesign() {
 	$('#inner-timer').width("100%");
 	$('#inner-timer').css("animation", "100s linear animate-timer forwards");
     $('#inner-timer').removeClass('paused');
+    $('#gameEndOverlay').css('opacity', '0');
+
+    endMessageDiv.innerHTML = "";
+
 }
 
 function changeScore() {
