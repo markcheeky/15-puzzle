@@ -179,6 +179,7 @@
 		position: relative;
 		top: 40%;
 		height: 20%;
+		font-size: inherit;
 	}
 /* end of game-field */
 
@@ -241,10 +242,10 @@
 			width: 32vw;
 		}
 
-		.column:nth-child(2) {
+		.column:nth-child(1) {
 			float: left;
 		}
-		.column:nth-child(3) {
+		.column:nth-child(2) {
 			float: right;
 		}
 
