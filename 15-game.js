@@ -47,10 +47,9 @@ function win() {
 	}
 }
 
-// read the cookie
+// read the cookie ,return value for given key or 0 if not found
 function ReadCookie(key) {
 	var allcookies = document.cookie;
-	alert("All Cookies : " + allcookies );
 
 	// Get all the cookies pairs in an array
 	cookiearray  = allcookies.split(';');
