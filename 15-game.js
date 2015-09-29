@@ -19,33 +19,54 @@ var bestScoreLabel = document.getElementById("best-inner-value");
 var score = 100;
 var bestScore = 0;
 var endMessageDiv = document.getElementById("inner-gameEnd");
+var cookieKey = "15-Puzzle_bestscore";
 
 var ChangeBoxAnimationTimeout;
 var changeContentOfScoreInterval;
 
 var gameEnd;
 
+// called when the game is over
 function end() {
 	gameEnd = true;
 	clearInterval(changeContentOfScoreInterval);
-    $('#inner-timer').addClass('paused');
-    $('#gameEndOverlay').css('opacity', '0.9');
+	$('#inner-timer').addClass('paused');
+	$('#gameEndOverlay').css('opacity', '0.9');
 }
 
-// called when user won
+// called when the user won
 function win() {
 	if (! gameEnd) {
 		end();
 		score = Math.ceil(score);
 		endMessageDiv.innerHTML = "Congratulations - you won! <br>score: " + score;
 		if (score > bestScore) {
-			document.cookie = score + ';expires = Tue, 19 Jan 2038 03:14:07 GMT';
+			document.cookie = cookieKey + "=" + score + ';expires = Tue, 19 Jan 2038 03:14:07 GMT';
 			bestScoreLabel.innerHTML = score;
 		}
 	}
 }
 
-// called when user lost
+// read the cookie
+function ReadCookie(key) {
+	var allcookies = document.cookie;
+	alert("All Cookies : " + allcookies );
+
+	// Get all the cookies pairs in an array
+	cookiearray  = allcookies.split(';');
+
+	// Now take key value pair out of this array
+	for(var i = 0; i < cookiearray.length; i++){
+		name = cookiearray[i].split('=')[0];
+		if(name === key) {
+			return cookiearray[i].split('=')[1];
+		}
+	}
+
+	return 0;
+}
+
+// called when the user lost
 function gameOver() {
 	if (! gameEnd) {
 		end();
@@ -121,10 +142,10 @@ function newGameDesign() {
 	$('#inner-timer').css({"animation": "none", "animation-play-state": "initial"});
 	$('#inner-timer').width("100%");
 	$('#inner-timer').css("animation", "100s linear animate-timer forwards");
-    $('#inner-timer').removeClass('paused');
-    $('#gameEndOverlay').css('opacity', '0');
+	$('#inner-timer').removeClass('paused');
+	$('#gameEndOverlay').css('opacity', '0');
 
-    endMessageDiv.innerHTML = "";
+	endMessageDiv.innerHTML = "";
 }
 
 // changes score in the label every second
@@ -144,7 +165,7 @@ function newGame() {
 	gameEnd = false;
 	score = 100;
 	gameEnd = false;
-	bestScore = document.cookie || 0;
+	bestScore = ReadCookie(cookieKey);
 	bestScoreLabel.innerHTML = bestScore;
 
 	newGameDesign();
