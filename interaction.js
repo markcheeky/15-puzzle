@@ -41,20 +41,37 @@ $(function hammerListener() {
 	};
 	var mc = new Hammer(document.getElementById('game-field'), options);
 	mc.get('swipe').set({ direction: Hammer.DIRECTION_ALL});
+	mc.get('pan').set({ direction: Hammer.DIRECTION_ALL});
+
 
 	mc.on("swipeleft", function(ev) {
 		move("left", true);
 	});
+	mc.on("panleft", function(ev) {
+		move("left", true);
+	});
+
 
 	mc.on("swiperight", function(ev) {
 		move("right", true);
 	});	
+	mc.on("panright", function(ev) {
+		move("right", true);
+	});	
+
 
 	mc.on("swipeup", function(ev) {
 		move("up", true);
+	});
+	mc.on("panup", function(ev) {
+		move("up", true);
 	});	
+		
 
 	mc.on("swipedown", function(ev) {
+		move("down", true);
+	});
+	mc.on("pandown", function(ev) {
 		move("down", true);
 	});	
 
