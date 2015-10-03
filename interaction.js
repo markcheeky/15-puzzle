@@ -140,4 +140,4 @@ $(function touchListener() {
 	$("#game-field").on( "swipedown", function() {
  		move("down", true);
 	});
-}
+});
