@@ -128,16 +128,24 @@ var supportTouch = $.support.touch,
 
 
 $(function touchListener() {
-	$("#game-field").on( "swipeleft", function() {
- 		move("left", true);
+	$("#game-field").on( "swipeleft", function(event) {
+ 		event.stopPropagation();
+ 		event.preventDefault();
+		move("left", true);
 	});
-	$("#game-field").on( "swiperight", function() {
+	$("#game-field").on( "swiperight", function(event) {
+ 		event.stopPropagation();
+ 		event.preventDefault();
  		move("right", true);
 	});
-	$("#game-field").on( "swipeup", function() {
+	$("#game-field").on( "swipeup", function(event) {
+ 		event.stopPropagation();
+ 		event.preventDefault();
  		move("up", true);
 	});
-	$("#game-field").on( "swipedown", function() {
+	$("#game-field").on( "swipedown", function(event) {
+ 		event.stopPropagation();
+ 		event.preventDefault();
  		move("down", true);
 	});
 });
