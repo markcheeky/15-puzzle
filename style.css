@@ -9,13 +9,13 @@
 		margin: 0;
 		border: none;
 		width: 100%;
-		min-height: 100%;
+		height: 100% !important;
 		font-size: 16pt;
 		font-weight: lighter;
 	}
 
 	#main-content {
-		margin: 0.5em auto;
+		margin: 1.5em auto;
 		overflow: auto;
 		display: none;
 	}
