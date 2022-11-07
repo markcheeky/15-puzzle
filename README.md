@@ -6,4 +6,4 @@ The 15-puzzle is a sliding puzzle that consists of a frame of 15 numbered square
 ### How to play:
 Use arrows to move the tiles. Swipe anywhere on the gamefield when using a smartphone or a tablet.
 
-  [15-puzzle]: <http://cuddlecheek.github.io/15-puzzle>
+  [15-puzzle]: <https://markcheeky.github.io/15-puzzle/>
